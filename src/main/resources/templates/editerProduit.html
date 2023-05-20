@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" type="text/css"
+      href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+    <div class="container">
+        <div class="card-body">
+            <form action="updateCategoire" method="post" >
+                <div class="form-group">
+                    <label class="control-label">Id :</label>
+                    <input type="text" name="idProduit" th:value="${produit.idProduit}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nom Produit :</label>
+                    <input type="text" name="nomProduit" th:value="${produit.nomProduit}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Prix Produit :</label>
+                    <input type="text" name="prixProduit" th:value="${produit.prixProduit}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">date création :</label>
+                    <input type="date" name="date" th:value="${produit.dateCreation}" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Catégorie:</label>
+                    <select  name="categorie" >
+                        <option class="form-control" th:each="c:${cats}" th:value="${c.idCat}"  th:text="${c.nomCat}"></option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">editer</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

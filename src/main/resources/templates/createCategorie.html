@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template.html">
+
+<link rel="stylesheet" type="text/css"
+      href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+    <meta charset="utf-8">
+    <title>Create Categorie</title>
+
+
+</head>
+
+<body>
+<div layout:fragment="Mycontent">
+    <div class="container">
+        <div class="card-body">
+            <form action="saveCategorie" method="post">
+                <div class="form-group">
+                    <label class="control-label">Nom Catégoire :</label>
+
+                    <input type="text" name="nomCat" class="form-control"
+                              />
+                    <span  class="text-danger"> </span>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">description :</label>
+
+                    <textarea class="form-control"  name="descriptionCat" rows="4" cols="50"  /></textarea>
+                    <span  class="text-danger"  > </span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div th:if="${msg}">
+            <p th:text="'Message: '+${msg}"/>
+        </div>
+        <br/>
+        <br/>
+        <a href="ListeCategorie">Liste Catégoires</a>
+    </div>
+
+</div>
+</body>
+
+</html>

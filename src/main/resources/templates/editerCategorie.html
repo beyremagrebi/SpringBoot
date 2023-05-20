@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template.html">
+
+<link rel="stylesheet" type="text/css"
+      href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Catégorie</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+    <div class="container">
+        <div class="card-body">
+            <form action="updateCategorie" method="post" >
+                <div class="form-group">
+                    <label class="control-label">Id :</label>
+                    <input type="text" name="idCat" th:value="${cat.idCat}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nom Produit :</label>
+                    <input type="text" name="nomCat" th:value="${cat.nomCat}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Description :</label>
+
+                    <textarea class="form-control"  name="descriptionCat" rows="4" cols="50" th:text="${cat.descriptionCat}"/></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">editer</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
