@@ -6,6 +6,15 @@ public class UserForm {
         private String password;
         private String confirmedPassword;
 
+        public UserForm(){
+
+        }
+
+        public UserForm(String username,String password,String confirmedPassword){
+            this.confirmedPassword=confirmedPassword;
+            this.password=confirmedPassword;
+            this.username=username;
+        }
     public String getConfirmedPassword() {
         return confirmedPassword;
     }

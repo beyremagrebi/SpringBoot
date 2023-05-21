@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="template.html">
@@ -8,7 +15,7 @@
 <script type="text/javascript"
         src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
-    <title>Login</title>
+  <title>Login</title>
   <meta charset="utf-8">
   <title>Connexion</title>
 </head>
@@ -17,9 +24,12 @@
   <div class="container mt-5">
     <div class="col-md-6 offset-md-3">
       <div class="card">
-        <div class="card-header">Connexion</div>
+        <div class="card-header">Register</div>
         <div class="card-body">
-          <form th:action="@{login}" th:object="${user}" method="post">
+          <div class="alert alert-danger" role="alert" th:if="${error}">
+            <p th:text="${error}"/>
+          </div>
+          <form th:action="@{register}" th:object="${user}" method="post">
             <div class="form-group">
               <label class="control-label" >Utilisateur :</label>
               <input type="text" class="form-control" placeholder="Username" name="username">
@@ -28,13 +38,18 @@
               <label class="control-label" >Mot de passe :</label>
               <input  type="password" placeholder="Password" class="form-control" name="password" >
             </div>
-            <!--<button class="btn btn-primary">se connecter</button>-->
-            <button type="submit" class="btn btn-primary">connecter</button>
+            <div class="form-group">
+              <label class="control-label" >Mot de passe :</label>
+              <input  type="password" placeholder="Confirm Password" class="form-control" name="confirmedPassword" >
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter Compte</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+</body>
+</html>
 </body>
 </html>

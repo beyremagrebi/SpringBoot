@@ -29,4 +29,5 @@ public class SecurityController {
         request.logout();
         return "redirect:/login";
     }
+
 }

@@ -6,6 +6,7 @@ import com.iset.produits.service.UserForm;
 import com.iset.produits.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,24 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/addUser")
-    public String addUser(@ModelAttribute("user")User user){
-        userService.saveUser(user.getUsername(),user.getPassword(),user.getPassword());
+    @RequestMapping("/reg")
+    public String show(@ModelAttribute("user")User user){
+        return "register";
+    }
+
+    @RequestMapping("/register")
+    public String addUser(@ModelAttribute("user")UserForm user, ModelMap modelMap){
+        String error="";
+
+        if(user.getPassword().equals(user.getConfirmedPassword())){
+            userService.saveUser(user.getUsername(),user.getPassword(),user.getConfirmedPassword());
+        }
+        else{
+            error="Check Field Confirm Password";
+            modelMap.addAttribute("error",error);
+            return "register";
+        }
+
         return "login";
     }
 

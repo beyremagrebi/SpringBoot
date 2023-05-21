@@ -24,10 +24,14 @@ public class UserService implements UserDetailsService {
     RoleRepository roleRepository;
 
 
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+        this.bCryptPasswordEncoder=new BCryptPasswordEncoder();
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws
